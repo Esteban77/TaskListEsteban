@@ -2,6 +2,9 @@ package negocio;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import javax.servlet.http.HttpServletRequest;
@@ -38,8 +41,25 @@ public class IncluirTask implements Acao {
 		}else{
 			task.setStatusTask(false);
 		}
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+
+		Calendar calendar = Calendar.getInstance();
+		try {
+			calendar.setTime(sdf.parse(data));
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		Date date = new Date();
+		
 		date.getDate();
+		Calendar calendar2 = calendar.getInstance();
+		calendar2.setTime(date);
+
+		long difference = (calendar2.getTimeInMillis() - calendar.getTimeInMillis());
+		
+		date.setTime(date.getTime()-difference);
 		task.setDataTask(date);		
 		
 		
@@ -50,7 +70,8 @@ public class IncluirTask implements Acao {
 		if(taskReturn!=null){
 			JSONObject objeto = new JSONObject();
 			objeto.put("id", taskReturn.getIdTask());
-			objeto.put("titulo", taskReturn.getTitulo());
+			objeto.put("titulo", taskReturn.getTitulo());			
+			objeto.put("status", status);
 			try {
 				response.setCharacterEncoding("UTF-8");  
 		        response.setContentType("application/json");   

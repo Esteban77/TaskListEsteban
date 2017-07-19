@@ -29,9 +29,8 @@ public class AlterarTask implements Acao{
              jsonObject.put("id", taskReturn.getIdTask());  
              jsonObject.put("titulo", taskReturn.getTitulo());  
              jsonObject.put("descricao", taskReturn.getDescricao()); 
-             jsonObject.put("date", taskReturn.getDataTask()); 
-             jsonObject.put("status", taskReturn.isStatusTask()); 
-           
+             jsonObject.put("date", taskReturn.getDataTask());
+             jsonObject.put("status", taskReturn.isStatusTask());           
              try {
      			response.getWriter().write(jsonObject.toString());
      		} catch (IOException e) {

@@ -34,7 +34,14 @@ public class ObterTask implements Acao{
 		for(Task task : listTask ){
 			   JSONObject jsonObject = new JSONObject();  
                jsonObject.put("id", task.getIdTask());  
-               jsonObject.put("titulo", task.getTitulo());  
+               jsonObject.put("titulo", task.getTitulo());
+               String statu = null;
+               if(task.isStatusTask()){
+            	   statu = "REALIZADA";
+               }else{
+            	   statu= "NÃO REALIZADA";
+               }
+               jsonObject.put("status", statu); 
                jsonArray.put(jsonObject);  
 		}
 		

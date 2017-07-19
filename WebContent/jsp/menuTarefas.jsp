@@ -14,12 +14,11 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="/SistemaAvaliacao/css/estilos.css">
+<link rel="stylesheet" href="/TaskListEsteban/css/estilos.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="Chart.min.js"></script>
 <script src="../js/ajax.js"></script>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -72,7 +71,7 @@
 									<label class="radio-inline"><input class="formulinho" value="NÃO REALIZADA" type="radio" name="status">Não Realizada</label>
 			 		              	</div>
 									</div>		
-								<input class="form-control" name="id"
+								<input class="form-control" name="id" value=""
 										id="id" type="hidden">
 								<button type="button" class="btn btn-success" value="salvar" id="salvarTarefa">Salvar</button>
 									<br><br>
@@ -86,6 +85,7 @@
 								<thead>
 									<th>ID</th>
 									<th>Titulo da Tarefa</th>
+									<th>Status</th>
 									<th> </th>									
 								</thead>
 								<tbody> 
