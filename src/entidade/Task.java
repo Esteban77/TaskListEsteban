@@ -19,43 +19,43 @@ public class Task implements Serializable{
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;	
+	private Long idTask;	
 	
 	@Temporal(TemporalType.DATE)
-	private Date data;
+	private Date dataTask;
 	
 	private String titulo;
 	private String descricao;	
-	private boolean status;
+	private boolean statusTask;
 	
 	public Task() {
 		super();
 	}	
 
-	public Task(Long id, Date data, String descricao, boolean status) {
+	public Task(Long idTask, Date dataTask, String descricao, boolean status) {
 		super();
-		this.id = id;
-		this.data = data;
+		this.idTask = idTask;
+		this.dataTask = dataTask;
 		this.descricao = descricao;
-		this.status = status;
+		this.statusTask = statusTask;
 	}
 
 
 
-	public Long getId() {
-		return id;
+	public Long getIdTask() {
+		return idTask;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setIdTask(Long idTask) {
+		this.idTask = idTask;
 	}
 
-	public Date getData() {
-		return data;
+	public Date getDataTask() {
+		return dataTask;
 	}
 
-	public void setData(Date data) {
-		this.data = data;
+	public void setDataTask(Date dataTask) {
+		this.dataTask = dataTask;
 	}
 
 	public String getDescricao() {
@@ -66,17 +66,17 @@ public class Task implements Serializable{
 		this.descricao = descricao;
 	}
 
-	public boolean isStatus() {
-		return status;
+	public boolean isStatusTask() {
+		return statusTask;
 	}
 
-	public void setStatus(boolean status) {
-		this.status = status;
+	public void setStatusTask(boolean statusTask) {
+		this.statusTask = statusTask;
 	}
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", data=" + data + ", descricao=" + descricao + ", status=" + status + "]";
+		return "Task [idTask=" + idTask + ", dataTask=" + dataTask + ", descricao=" + descricao + ", statusTask=" + statusTask + "]";
 	}
 
 	public String getTitulo() {

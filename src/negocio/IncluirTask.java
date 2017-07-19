@@ -23,23 +23,33 @@ public class IncluirTask implements Acao {
 		Session session = HibernateUtil.getSession();
 		Task task = new Task();
 		TaskDaoImpl taskDaoImpl = new TaskDaoImpl();
-		task.setId(null);
+		String idTask = request.getParameter("id");
+		Long id = null;
+		if(idTask !=null && !idTask.isEmpty()){
+			id = (long) Integer.parseInt(idTask);
+		}
+		task.setIdTask(id);
 		task.setDescricao(request.getParameter("descricao"));
 		task.setTitulo(request.getParameter("titulo"));
-		String data = request.getParameter("data");
+		String data = request.getParameter("dataInicio");
+		String status = request.getParameter("status");
+		if(status.equalsIgnoreCase("realizada")){
+			task.setStatusTask(true);
+		}else{
+			task.setStatusTask(false);
+		}
 		Date date = new Date();
 		date.getDate();
-		task.setData(date);		
-		task.setStatus(true);
+		task.setDataTask(date);		
 		
-		taskDaoImpl.salvarOuAlterar(task, session);
+		
+		taskDaoImpl.salvarOuAlterar(task, session);	
+		Task taskReturn = taskDaoImpl.pesquisaPorId(task.getIdTask(), session);
 		session.close();
-		
-		Task taskReturn = taskDaoImpl.pesquisaPorId(task.getId(), session);
 		
 		if(taskReturn!=null){
 			JSONObject objeto = new JSONObject();
-			objeto.put("id", taskReturn.getId());
+			objeto.put("id", taskReturn.getIdTask());
 			objeto.put("titulo", taskReturn.getTitulo());
 			try {
 				response.setCharacterEncoding("UTF-8");  

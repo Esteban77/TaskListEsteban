@@ -33,7 +33,7 @@ public class ObterTask implements Acao{
 		JSONArray jsonArray = new JSONArray();
 		for(Task task : listTask ){
 			   JSONObject jsonObject = new JSONObject();  
-               jsonObject.put("id", task.getId());  
+               jsonObject.put("id", task.getIdTask());  
                jsonObject.put("titulo", task.getTitulo());  
                jsonArray.put(jsonObject);  
 		}

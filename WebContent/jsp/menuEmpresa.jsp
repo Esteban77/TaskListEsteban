@@ -25,37 +25,64 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Menu Empresa</title>
 </head>
-
 <nav class="navbar navbar-inverse  navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Sap</a>
+				<a class="navbar-brand" href="#">Gerenciador de Tarefas</a>
 			</div>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="/SistemaAvaliacao/LogOut" data-toggle="modal">Sair <span
 						class="glyphicon glyphicon-log-out"></span></a></li>
 			</ul>
 		</div>
-	</nav>	
+	</nav>
 	
 <body id="corpo" style="margin-top:50px">
-			<div id="minhasTask" class="tab-pane fade container">
+	<div class="container-fluid">
+	<div class="container link">
+		 <!-- Centered Pills -->
+		<ul class="nav nav-pills nav-justified" >
+			<li class="active"><a data-toggle="pill" href="#listaFormularios">Listar Tarefas</a></li>
+			<li><a  data-toggle="pill" href="#minhaTarefa" id="minhasTarefas">Gerenciar Tarefas</a></li>
+		</ul>
+	</div>	
+
+		<div class="tab-content">
+			<div id="minhaTarefa" class="tab-pane fade container">
 				<h3>Tarefas</h3>
-				<p>Escreva a tarefa a realizar</p>
+				<p>Gerencie as tarefas a realizar</p>
 						
 						<form class="form-horizontal" id="formularioPergunta">
 							<div class="form-group">
-									<label for="task" class="col-sm-2 control-label">Task</label>
+									<label for="tarefa" class="col-sm-2 control-label">Titulo Tarefa</label>
 									<div class="col-sm-8">
-										<input class="form-control" type="text" name="task"
-										id="task" placeholder="Digite o nome da tarefa a realizar">
+										<input class="form-control" type="text" name="titulo"
+										id="titulo" placeholder="Digite o nome da tarefa">
+									<label class="control-label">Data Tarefa</label>
+									<div  class="input-group date" data-provide="datepicker">
+										<input name="dataInicio" id="dataInicio" type="date" class="form-control"
+										pattern="[0-9]{2}\/[0-9]{2}\/[0-9]{4}$" min="1950-01-01" max="2100-12-18" required>
 									</div>
-								<button type="button" class="btn btn-success" value="salvar" id="salvarTask">Salvar</button>
+									<div class="form-group">
+  									<label for="comment">Descrição:</label>
+						  			<textarea class="form-control" rows="5" id="descricao" name="descricao"></textarea>
+						  			<div class="form-group" name = "status" id="status">
+						  			<label for="comment">Status:</label>
+						  			<label class="radio-inline"><input class="formulinho" value="REALIZADA" type="radio" name="status" checked>Realizada</label>
+									<label class="radio-inline"><input class="formulinho" value="NÃO REALIZADA" type="radio" name="status">Não Realizada</label>
+			 		              	</div>
+									</div>		
+								<input class="form-control" name="id"
+										id="id" type="hidden">
+								<button type="button" class="btn btn-success" value="salvar" id="salvarTarefa">Salvar</button>
+									<br><br>
+									
+									</div>	
 							</div>
 							<hr>
 							<br><br>
 					<div class="row">
-							<table class="table table-bordered" id="tabelaTask">
+							<table class="table table-bordered" id="tabelaTarefa">
 								<thead>
 									<th>ID</th>
 									<th>Titulo da Tarefa</th>
